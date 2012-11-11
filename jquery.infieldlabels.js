@@ -29,11 +29,11 @@
 			var label = $input.data('label'),
 				val = $input.val();
 			
-			// add label if val is empty
+			// add label if val is empty or contains default value (necessary for reload)
 			if ($input.is('input:password') && (val === '')) {
 				$input.hide().next('input').val(label).show();
 			}
-			else if (val === '') {
+			else if (val === '' || val === $input.data('label')) {
 				$input.addClass('label').val(label);
 			}
 		};
